@@ -1,7 +1,11 @@
 import React from 'react';
 
 const FormPost = () => {
-  return <div>FormPost</div>;
+  return (
+    <div>
+      <h1>FormPost</h1>
+    </div>
+  );
 };
 
 export default FormPost;
