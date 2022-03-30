@@ -9,15 +9,23 @@ function App() {
   const initialUsers = [
     { name: 'john', email: 'john@doe.dev', password: '1234' },
   ];
+
+  const initalFormValues = {
+    name: '',
+    email: '',
+    password: '',
+    tos: false,
+    disabled: true,
+  };
   //set state
   const [users, setUsers] = useState(initialUsers);
-  const [formValues, setFormValues] = useState([]);
+  const [formValues, setFormValues] = useState(initalFormValues);
   const [formErrors, setFormErrors] = useState([]);
   const [disabled, setDisabled] = useState(true);
 
   return (
     <div className='App'>
-      <ShowForm />
+      <ShowForm formValues={formValues} setFormValues={setFormValues} />
       <ShowUsers users={users} />
     </div>
   );
