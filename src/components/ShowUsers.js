@@ -1,18 +1,17 @@
-import React from 'react';
+import React from "react";
 
 const ShowUsers = (props) => {
   const { users } = props;
   return (
     <div>
       <h1>ShowUsers</h1>
-      <ul>
-        {users.map((user) => (
-          <li key={user.id}>
-            Name: {user.name}, Email: {user.email}, Password:
-            {user.password ? user.password : 'No password'}
-          </li>
-        ))}
-      </ul>
+
+      {users.map((user) => (
+        <p key={user.id}>
+          Name: {user.name}, Email: {user.email}, Password:
+          {user.password ? user.password : "No password"}
+        </p>
+      ))}
     </div>
   );
 };

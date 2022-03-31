@@ -1,7 +1,7 @@
-import React from 'react';
-import { submit } from './FormPost.js';
-import * as yup from 'yup';
-import schema from '../validation/schema';
+import React from "react";
+import { submit } from "./FormPost.js";
+import * as yup from "yup";
+import schema from "../validation/schema";
 
 const ShowForm = (props) => {
   const {
@@ -18,7 +18,7 @@ const ShowForm = (props) => {
   //make submit handler
   const onSubmit = (e) => {
     e.preventDefault();
-    submit(formValues, users, setUsers);
+    submit(formValues, users, setUsers, setFormValues);
   };
 
   const validate = (name, value) => {
@@ -26,13 +26,13 @@ const ShowForm = (props) => {
     yup
       .reach(schema, name)
       .validate(value)
-      .then(() => setFormErrors({ ...formErrors, [name]: '' }))
+      .then(() => setFormErrors({ ...formErrors, [name]: "" }))
       .catch((err) => setFormErrors({ ...formErrors, [name]: err.errors[0] }));
   };
   //make change handeler
   const onChange = (e) => {
     const { name, value, checked, type } = e.target;
-    const valToUse = type === 'checkbox' ? checked : value;
+    const valToUse = type === "checkbox" ? checked : value;
     validate(name, valToUse);
     console.log(type);
 
@@ -41,7 +41,7 @@ const ShowForm = (props) => {
 
   return (
     <div>
-      <div className='errors'>
+      <div className="errors">
         <div>{formErrors.name}</div>
         <div>{formErrors.email}</div>
         <div>{formErrors.password}</div>
@@ -52,9 +52,9 @@ const ShowForm = (props) => {
         <label>
           Name:
           <input
-            type='text'
-            name='name'
-            placeholder='name'
+            type="text"
+            name="name"
+            placeholder="name"
             onChange={onChange}
             value={name}
           />
@@ -63,9 +63,9 @@ const ShowForm = (props) => {
         <label>
           Email:
           <input
-            type='email'
-            name='email'
-            placeholder='email'
+            type="email"
+            name="email"
+            placeholder="email"
             onChange={onChange}
             value={email}
           />
@@ -74,9 +74,9 @@ const ShowForm = (props) => {
         <label>
           Password:
           <input
-            type='password'
-            name='password'
-            placeholder='password'
+            type="password"
+            name="password"
+            placeholder="password"
             onChange={onChange}
             value={password}
           />
@@ -84,7 +84,7 @@ const ShowForm = (props) => {
         <br />
         <label>
           I agree to the terms of service
-          <input type='checkbox' name='tos' onChange={onChange} checked={tos} />
+          <input type="checkbox" name="tos" onChange={onChange} checked={tos} />
         </label>
         <br />
         <button disabled={disabled}>Submit</button>
