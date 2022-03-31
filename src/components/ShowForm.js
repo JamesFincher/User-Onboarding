@@ -1,8 +1,15 @@
 import React from 'react';
+import { submit } from './FormPost.js';
 
 const ShowForm = (props) => {
-  const { formValues, setFormValues } = props;
-  const { name, email, password, tos, disabled } = formValues;
+  const { formValues, setFormValues, setUsers, users, disabled } = props;
+  const { name, email, password, tos } = formValues;
+
+  //make submit handler
+  const onSubmit = (e) => {
+    e.preventDefault();
+    submit(formValues, users, setUsers);
+  };
 
   //make change handeler
   const onChange = (e) => {
@@ -14,7 +21,7 @@ const ShowForm = (props) => {
   return (
     <div>
       <h1>ShowForm</h1>
-      <form>
+      <form onSubmit={onSubmit}>
         <label>
           Name:
           <input

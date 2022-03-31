@@ -1,4 +1,6 @@
 import React from 'react';
+import axios from 'axios';
+import { useState, useEffect } from 'react';
 
 const ShowUsers = (props) => {
   const { users } = props;
@@ -7,7 +9,7 @@ const ShowUsers = (props) => {
       <h1>ShowUsers</h1>
       <ol>
         {users.map((user) => (
-          <li>
+          <li key={user.id}>
             Name: {user.name}, Email: {user.email}, Password:
             {user.password ? user.password : 'No password'}
           </li>

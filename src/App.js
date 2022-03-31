@@ -7,7 +7,7 @@ import axios from 'axios';
 
 function App() {
   const initialUsers = [
-    { name: 'john', email: 'john@doe.dev', password: '1234' },
+    { name: 'john', email: 'john@doe.dev', password: '1234', id: '123456' },
   ];
 
   const initalFormValues = {
@@ -21,11 +21,17 @@ function App() {
   const [users, setUsers] = useState(initialUsers);
   const [formValues, setFormValues] = useState(initalFormValues);
   const [formErrors, setFormErrors] = useState([]);
-  const [disabled, setDisabled] = useState(true);
+  const [disabled, setDisabled] = useState(false);
 
   return (
     <div className='App'>
-      <ShowForm formValues={formValues} setFormValues={setFormValues} />
+      <ShowForm
+        formValues={formValues}
+        setFormValues={setFormValues}
+        disabled={disabled}
+        setUsers={setUsers}
+        users={users}
+      />
       <ShowUsers users={users} />
     </div>
   );
