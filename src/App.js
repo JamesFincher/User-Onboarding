@@ -6,7 +6,12 @@ import schema from "./validation/schema";
 
 function App() {
   const initialUsers = [
-    { name: "john", email: "john@doe.dev", password: "1234", id: "123456" },
+    {
+      name: "John",
+      email: "John@doe.dev",
+      password: "John123456",
+      id: "John12345656",
+    },
   ];
 
   const initalFormValues = {

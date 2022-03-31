@@ -87,7 +87,9 @@ const ShowForm = (props) => {
           <input type="checkbox" name="tos" onChange={onChange} checked={tos} />
         </label>
         <br />
-        <button disabled={disabled}>Submit</button>
+        <button disabled={disabled} name="submit">
+          Submit
+        </button>
       </form>
     </div>
   );
