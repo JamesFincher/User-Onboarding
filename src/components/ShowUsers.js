@@ -7,14 +7,14 @@ const ShowUsers = (props) => {
   return (
     <div>
       <h1>ShowUsers</h1>
-      <ol>
+      <ul>
         {users.map((user) => (
           <li key={user.id}>
             Name: {user.name}, Email: {user.email}, Password:
             {user.password ? user.password : 'No password'}
           </li>
         ))}
-      </ol>
+      </ul>
     </div>
   );
 };
